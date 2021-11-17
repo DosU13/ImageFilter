@@ -491,7 +491,7 @@ namespace ImageFilter
             this.trackBarSaturation.Name = "trackBarSaturation";
             this.trackBarSaturation.Size = new System.Drawing.Size(264, 44);
             this.trackBarSaturation.TabIndex = 5;
-            this.trackBarSaturation.Value = 10;
+            this.trackBarSaturation.Value = 5;
             this.trackBarSaturation.ValueChanged += new System.EventHandler(this.trackBarSaturation_ValueChanged);
             // 
             // trackBarContrast
@@ -501,7 +501,7 @@ namespace ImageFilter
             this.trackBarContrast.Name = "trackBarContrast";
             this.trackBarContrast.Size = new System.Drawing.Size(264, 44);
             this.trackBarContrast.TabIndex = 4;
-            this.trackBarContrast.Value = 10;
+            this.trackBarContrast.Value = 5;
             this.trackBarContrast.ValueChanged += new System.EventHandler(this.trackBarContrast_ValueChanged);
             // 
             // label2

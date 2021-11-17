@@ -128,7 +128,15 @@ namespace ImageFilter
         private float contrast = 1f;
         private void trackBarContrast_ValueChanged(object sender, EventArgs e)
         {
-            contrast = ((float)trackBarContrast.Value) / 15f + 0.33333f;
+            if (trackBarContrast.Value < 5)
+            {
+                contrast = ((float)trackBarContrast.Value + 2f) / 7f;
+            }
+            else if (trackBarContrast.Value > 5)
+            {
+                contrast = ((float)trackBarContrast.Value - 3f)/2f; 
+            }
+            else contrast = 1f;
             updatePicture();
         }
 
@@ -136,7 +144,15 @@ namespace ImageFilter
         private float saturation = 1f;
         private void trackBarSaturation_ValueChanged(object sender, EventArgs e)
         {
-            saturation = ((float)trackBarSaturation.Value) / 10f;
+            if (trackBarSaturation.Value < 5)
+            {
+                saturation = ((float)trackBarSaturation.Value + 2f) / 7f;
+            }
+            else if (trackBarSaturation.Value > 5)
+            {
+                saturation = ((float)trackBarSaturation.Value - 3f) / 2f;
+            }
+            else saturation = 1f;
             updatePicture();
         }
     }
