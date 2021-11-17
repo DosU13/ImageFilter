@@ -16,16 +16,17 @@ namespace ImageFilter
     public partial class Form1 : Form
     {
         private Bitmap original;
+        private Image mainPicture;
         private string originalPath;
         private PictureBox[] filterPictures;
         private Label[] filterNames;
         public Form1()
         {
             InitializeComponent();
-            filterPictures = new PictureBox[]{pictureBox2, pictureBox3, pictureBox4,
-                pictureBox5, pictureBox6, pictureBox7,pictureBox8, pictureBox9, pictureBox10};
-            filterNames = new Label[] {label2, label3, label4, label5, label6, label7, label8, label9, label10};
-            for(int i=0; i < 9; i++)
+            filterPictures = new PictureBox[]{filterPic0, filterPic1, filterPic2,
+                filterPic3, filterPic4, filterPic5,filterPic6, filterPic7, filterPic8};
+            filterNames = new Label[] {filter0, filter1, filter2, filter3, filter4, filter5, filter6, filter7, filter8};
+            for(int i=0; i < filterNames.Length; i++)
             {
                 filterNames[i].Text = Filters.names[i];
                 ToolStripItem item = new ToolStripMenuItem();
@@ -33,6 +34,8 @@ namespace ImageFilter
                 item.Click += new EventHandler((s, ee) => 
                     ChooseFilter(filtersToolStripMenuItem.DropDownItems.IndexOf(item)));
                 filtersToolStripMenuItem.DropDownItems.Add(item);
+                filterPictures[i].Click += new EventHandler((s, ee) =>
+                    ChooseFilter(filtersToolStripMenuItem.DropDownItems.IndexOf(item)));
             }
             var bmp = new Bitmap(ImageFilter.Properties.Resources.image);
             changeOriginalImage(bmp);
@@ -42,12 +45,12 @@ namespace ImageFilter
         private void changeOriginalImage(Image image)
         {
             original = new Bitmap(image);
-            pictureBox1.Image = original;
             Filters.SetOriginal(original);
             for (int i = 0; i < filterNames.Length; i++)
             {
                 filterPictures[i].Image = Filters.FilterSmall(i);
             }
+            updatePicture();
         }
 
         private int choosenFilter = 0;
@@ -56,53 +59,21 @@ namespace ImageFilter
             filterNames[choosenFilter].BackColor = SystemColors.Control;
             choosenFilter = filterInd;
             filterNames[choosenFilter].BackColor = Color.Yellow;
-            pictureBox1.Image = Filters.Filter(original, choosenFilter);
+            updatePicture();
         }
 
-
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void updatePicture()
         {
-            ChooseFilter(0);
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            ChooseFilter(1);
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-            ChooseFilter(2);
-        }
-
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-            ChooseFilter(3);
-        }
-
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-            ChooseFilter(4);
-        }
-
-        private void pictureBox7_Click(object sender, EventArgs e)
-        {
-            ChooseFilter(5);
-        }
-
-        private void pictureBox8_Click(object sender, EventArgs e)
-        {
-            ChooseFilter(6);
-        }
-
-        private void pictureBox9_Click(object sender, EventArgs e)
-        {
-            ChooseFilter(7);
-        }
-
-        private void pictureBox10_Click(object sender, EventArgs e)
-        {
-            ChooseFilter(8);
+            Image filtered = Filters.Filter(original, choosenFilter);
+            Image brighthened;
+            if (brightness == 0) brighthened = filtered;
+            else brighthened = Filters.DrawAsBrightness(filtered, brightness);
+            Image contrasted;
+            if (contrast == 10) contrasted = brighthened;
+            else contrasted = Filters.DrawAsContrast(brighthened, contrast);
+            if (saturation == 10) mainPicture = contrasted;
+            else mainPicture = Filters.DrawAsSaturation(contrasted, saturation);
+            pictureBox1.Image = mainPicture;
         }
 
         private void chooseImageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -121,7 +92,7 @@ namespace ImageFilter
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Image bm = Filters.Filter(original, choosenFilter);
+            Image bm = Filters.Filter(mainPicture, choosenFilter);
             Console.WriteLine("Path is HERE: " + originalPath);
             bm.Save(originalPath);
             MessageBox.Show("Saved");
@@ -131,7 +102,7 @@ namespace ImageFilter
         {
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                Image bm = Filters.Filter(original, choosenFilter);
+                Image bm = Filters.Filter(mainPicture, choosenFilter);
                 bm.Save(saveFileDialog1.FileName);
             }
         }
@@ -144,6 +115,29 @@ namespace ImageFilter
         private void openSiteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/DosU13/Image-Filters");
+        }
+
+        private float brightness = 0f;
+        private void trackBarBrightness_ValueChanged(object sender, EventArgs e)
+        {
+            brightness = ((float)trackBarBrightness.Value-5f)/10f;
+            updatePicture();
+        }
+
+
+        private float contrast = 1f;
+        private void trackBarContrast_ValueChanged(object sender, EventArgs e)
+        {
+            contrast = ((float)trackBarContrast.Value) / 15f + 0.33333f;
+            updatePicture();
+        }
+
+
+        private float saturation = 1f;
+        private void trackBarSaturation_ValueChanged(object sender, EventArgs e)
+        {
+            saturation = ((float)trackBarSaturation.Value) / 10f;
+            updatePicture();
         }
     }
 }

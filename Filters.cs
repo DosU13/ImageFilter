@@ -108,6 +108,49 @@ namespace ImageFilter
             return bmpNew;
         }
 
+        public static Bitmap DrawAsBrightness(this Image sourceImage, float b)
+        {
+            ColorMatrix colorMatrix = new ColorMatrix(new float[][]
+                                {
+                            new float[]{1, 0, 0, 0, 0},
+                            new float[]{0, 1, 0, 0, 0},
+                            new float[]{0, 0, 1, 0, 0},
+                            new float[]{0, 0, 0, 1, 0},
+                            new float[]{b, b, b, 0, 1}
+                                });
+            return ApplyColorMatrix(sourceImage, colorMatrix);
+        }
+
+        public static Bitmap DrawAsContrast(this Image sourceImage, float c)
+        {
+            float t = (1f - c) / 2f;
+            ColorMatrix colorMatrix = new ColorMatrix(new float[][]
+                                {
+                            new float[]{c, 0, 0, 0, 0},
+                            new float[]{0, c, 0, 0, 0},
+                            new float[]{0, 0, c, 0, 0},
+                            new float[]{0, 0, 0, 1, 0},
+                            new float[]{t, t, t, 0, 1}
+                                });
+            return ApplyColorMatrix(sourceImage, colorMatrix);
+        }
+
+        public static Bitmap DrawAsSaturation(this Image sourceImage, float s)
+        {
+            float sr = (1f - s)*0.3086f;
+            float sg = (1f - s) * 0.6094f;
+            float sb = (1f - s) * 0.0820f;
+            ColorMatrix colorMatrix = new ColorMatrix(new float[][]
+                                {
+                            new float[]{sr+s, sr, sr, 0, 0},
+                            new float[]{sg, sg+s, sg, 0, 0},
+                            new float[]{sb, sb, sb+s, 0, 0},
+                            new float[]{0, 0, 0, 1, 0},
+                            new float[]{0, 0, 0, 0, 1}
+                                });
+            return ApplyColorMatrix(sourceImage, colorMatrix);
+        }
+
         public static Bitmap DrawAsGrayscale(this Image sourceImage)
         {
             ColorMatrix colorMatrix = new ColorMatrix(new float[][]
