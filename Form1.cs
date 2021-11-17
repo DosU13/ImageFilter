@@ -25,15 +25,17 @@ namespace ImageFilter
             filterPictures = new PictureBox[]{pictureBox2, pictureBox3, pictureBox4,
                 pictureBox5, pictureBox6, pictureBox7,pictureBox8, pictureBox9, pictureBox10};
             filterNames = new Label[] {label2, label3, label4, label5, label6, label7, label8, label9, label10};
-            for(int i=0; i < 4; i++)
+            for(int i=0; i < 9; i++)
             {
                 filterNames[i].Text = Filters.names[i];
+                ToolStripItem item = new ToolStripMenuItem();
+                item.Text = Filters.names[i];
+                item.Click += new EventHandler((s, ee) => 
+                    ChooseFilter(filtersToolStripMenuItem.DropDownItems.IndexOf(item)));
+                filtersToolStripMenuItem.DropDownItems.Add(item);
             }
-            Console.WriteLine("HERE: " + Assembly.GetExecutingAssembly().GetManifestResourceNames());
-            Stream imgStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(
-                "ImageFilter.resources.image.jpg");
-            //Image img = new Bitmap(imgStream);
-            //changeOriginalImage(img);
+            var bmp = new Bitmap(ImageFilter.Properties.Resources.image);
+            changeOriginalImage(bmp);
             ChooseFilter(0);
         }
 
@@ -46,11 +48,6 @@ namespace ImageFilter
             {
                 filterPictures[i].Image = Filters.FilterSmall(i);
             }
-        }
-
-        private void toolStripLabel1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private int choosenFilter = 0;
@@ -85,27 +82,27 @@ namespace ImageFilter
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-
+            ChooseFilter(4);
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-
+            ChooseFilter(5);
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
-
+            ChooseFilter(6);
         }
 
         private void pictureBox9_Click(object sender, EventArgs e)
         {
-
+            ChooseFilter(7);
         }
 
         private void pictureBox10_Click(object sender, EventArgs e)
         {
-
+            ChooseFilter(8);
         }
 
         private void chooseImageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -117,6 +114,7 @@ namespace ImageFilter
                 {
                     changeOriginalImage(img);
                     openFileDialog1.Dispose();
+                    saveToolStripMenuItem.Enabled = true;
                 }
             }
         }
@@ -140,7 +138,7 @@ namespace ImageFilter
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            Close();
         }
 
         private void openSiteToolStripMenuItem_Click(object sender, EventArgs e)

@@ -102,7 +102,7 @@ namespace ImageFilter
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(0, 5);
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(137, 25);
             this.label1.TabIndex = 3;
@@ -132,9 +132,9 @@ namespace ImageFilter
             this.flowLayoutPanel1.Controls.Add(this.panel9);
             this.flowLayoutPanel1.Controls.Add(this.panel10);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 30);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 25);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(366, 531);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(366, 536);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // panel2
@@ -421,7 +421,7 @@ namespace ImageFilter
             this.progressBar1.Dock = System.Windows.Forms.DockStyle.Top;
             this.progressBar1.Location = new System.Drawing.Point(0, 0);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(366, 5);
+            this.progressBar1.Size = new System.Drawing.Size(366, 0);
             this.progressBar1.TabIndex = 1;
             // 
             // pictureBox1
@@ -471,6 +471,7 @@ namespace ImageFilter
             // 
             // saveToolStripMenuItem
             // 
+            this.saveToolStripMenuItem.Enabled = false;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.saveToolStripMenuItem.Text = "Save";
@@ -502,7 +503,7 @@ namespace ImageFilter
             // 
             this.filtersToolStripMenuItem.Name = "filtersToolStripMenuItem";
             this.filtersToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.filtersToolStripMenuItem.Text = "filters";
+            this.filtersToolStripMenuItem.Text = "Filter";
             // 
             // aboutToolStripMenuItem
             // 

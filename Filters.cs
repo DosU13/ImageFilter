@@ -10,7 +10,8 @@ namespace ImageFilter
 {
     static class Filters 
     {
-        public static readonly String[] names = new String[]{"Original", "Grayscale", "Sepia", "Negative"};
+        public static readonly String[] names = new String[]{"Original", "Grayscale", "Sepia", "Negative", 
+            "Black and White", "Polaroid", "Sunny", "Cold", "Sea"};
         private static Image original;
 
         public static void SetOriginal(Bitmap originalBig)
@@ -32,6 +33,11 @@ namespace ImageFilter
                 case 1: return DrawAsGrayscale(image);
                 case 2: return DrawAsSepiaTone(image);
                 case 3: return DrawAsNegative(image);
+                case 4: return DrawAsBlackAndWhite(image);
+                case 5: return DrawAsPolaroid(image);
+                case 6: return DrawAsSunny(image);
+                case 7: return DrawAsCold(image);
+                case 8: return DrawAsSea(image);
                 default: return GetArgbCopy(image);
             }
         }
@@ -137,6 +143,71 @@ namespace ImageFilter
                             new float[]{0, 0, -1, 0, 0},
                             new float[]{0, 0, 0, 1, 0},
                             new float[]{1, 1, 1, 1, 1}
+                           });
+            return ApplyColorMatrix(sourceImage, colorMatrix);
+        }
+
+        public static Bitmap DrawAsBlackAndWhite(this Image sourceImage)
+        {
+            ColorMatrix colorMatrix = new ColorMatrix(new float[][]
+                           {
+                            new float[]{1.5f, 1.5f, 1.5f, 0, 0},
+                            new float[]{1.5f,1.5f,1.5f,0,0},
+                            new float[]{1.5f,1.5f,1.5f,0,0},
+                            new float[]{0, 0, 0, 1, 0},
+                            new float[]{ -1,-1,-1,0,1 }
+                           });
+            return ApplyColorMatrix(sourceImage, colorMatrix);
+        }
+
+        public static Bitmap DrawAsPolaroid(this Image sourceImage)
+        {
+            ColorMatrix colorMatrix = new ColorMatrix(new float[][]
+                           {
+                            new float[]{1.438f, -0.062f, -0.062f, 0f, 0},
+                            new float[]{-0.122f,1.378f,-0.122f,0f,0},
+                            new float[]{-0.016f,-0.016f,1.483f,0f,0},
+                            new float[]{0, 0, 0, 1, 0},
+                            new float[]{ -0.03f,0.05f,-0.02f,0f,1 }
+                           });
+            return ApplyColorMatrix(sourceImage, colorMatrix);
+        }
+
+        public static Bitmap DrawAsSunny(this Image sourceImage)
+        {
+            ColorMatrix colorMatrix = new ColorMatrix(new float[][]
+                           {
+                            new float[]{1, 0, 0, 0, 0},
+                            new float[]{0, 1, 0, 0, 0},
+                            new float[]{0, 0, 1, 0, 0},
+                            new float[]{0, 0, 0, 1, 0},
+                            new float[]{0.2f, 0.2f, 0, 0, 1}
+                           });
+            return ApplyColorMatrix(sourceImage, colorMatrix);
+        }
+
+        public static Bitmap DrawAsCold(this Image sourceImage)
+        {
+            ColorMatrix colorMatrix = new ColorMatrix(new float[][]
+                           {
+                            new float[]{-1, 0, 0, 0, 0},
+                            new float[]{0, 1, 0, 0, 0},
+                            new float[]{0, 0, 1, 0, 0},
+                            new float[]{0, 0, 0, 1, 0},
+                            new float[]{0, 0, 0.2f, 0, 1}
+                           });
+            return ApplyColorMatrix(sourceImage, colorMatrix);
+        }
+
+        public static Bitmap DrawAsSea(this Image sourceImage)
+        {
+            ColorMatrix colorMatrix = new ColorMatrix(new float[][]
+                           {
+                            new float[]{-1, 0, 0, 0, 0},
+                            new float[]{0, 1, 0, 0, 0},
+                            new float[]{0, 0, 1, 0, 0},
+                            new float[]{0, 0, 0, 1, 0},
+                            new float[]{0, 0.2f, 0, 0, 1}
                            });
             return ApplyColorMatrix(sourceImage, colorMatrix);
         }
