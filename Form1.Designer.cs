@@ -114,9 +114,9 @@ namespace ImageFilter
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.progressBar1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(760, 28);
+            this.panel1.Location = new System.Drawing.Point(866, 36);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(366, 561);
+            this.panel1.Size = new System.Drawing.Size(260, 553);
             this.panel1.TabIndex = 2;
             // 
             // flowLayoutPanel1
@@ -134,7 +134,7 @@ namespace ImageFilter
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 25);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(366, 536);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(260, 528);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // panel2
@@ -142,7 +142,7 @@ namespace ImageFilter
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Location = new System.Drawing.Point(10, 10);
-            this.panel2.Margin = new System.Windows.Forms.Padding(10);
+            this.panel2.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(100, 125);
             this.panel2.TabIndex = 0;
@@ -172,8 +172,8 @@ namespace ImageFilter
             // 
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Location = new System.Drawing.Point(130, 10);
-            this.panel3.Margin = new System.Windows.Forms.Padding(10);
+            this.panel3.Location = new System.Drawing.Point(10, 155);
+            this.panel3.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(100, 125);
             this.panel3.TabIndex = 2;
@@ -203,8 +203,8 @@ namespace ImageFilter
             // 
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.pictureBox4);
-            this.panel4.Location = new System.Drawing.Point(250, 10);
-            this.panel4.Margin = new System.Windows.Forms.Padding(10);
+            this.panel4.Location = new System.Drawing.Point(10, 300);
+            this.panel4.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(100, 125);
             this.panel4.TabIndex = 2;
@@ -222,7 +222,7 @@ namespace ImageFilter
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(-3, -1);
+            this.pictureBox4.Location = new System.Drawing.Point(0, 0);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(100, 100);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -234,8 +234,8 @@ namespace ImageFilter
             // 
             this.panel5.Controls.Add(this.label5);
             this.panel5.Controls.Add(this.pictureBox5);
-            this.panel5.Location = new System.Drawing.Point(10, 155);
-            this.panel5.Margin = new System.Windows.Forms.Padding(10);
+            this.panel5.Location = new System.Drawing.Point(10, 445);
+            this.panel5.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(100, 125);
             this.panel5.TabIndex = 2;
@@ -265,8 +265,8 @@ namespace ImageFilter
             // 
             this.panel6.Controls.Add(this.label6);
             this.panel6.Controls.Add(this.pictureBox6);
-            this.panel6.Location = new System.Drawing.Point(130, 155);
-            this.panel6.Margin = new System.Windows.Forms.Padding(10);
+            this.panel6.Location = new System.Drawing.Point(10, 590);
+            this.panel6.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(100, 125);
             this.panel6.TabIndex = 2;
@@ -296,8 +296,8 @@ namespace ImageFilter
             // 
             this.panel7.Controls.Add(this.label7);
             this.panel7.Controls.Add(this.pictureBox7);
-            this.panel7.Location = new System.Drawing.Point(250, 155);
-            this.panel7.Margin = new System.Windows.Forms.Padding(10);
+            this.panel7.Location = new System.Drawing.Point(10, 735);
+            this.panel7.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(100, 125);
             this.panel7.TabIndex = 2;
@@ -327,8 +327,8 @@ namespace ImageFilter
             // 
             this.panel8.Controls.Add(this.label8);
             this.panel8.Controls.Add(this.pictureBox8);
-            this.panel8.Location = new System.Drawing.Point(10, 300);
-            this.panel8.Margin = new System.Windows.Forms.Padding(10);
+            this.panel8.Location = new System.Drawing.Point(10, 880);
+            this.panel8.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(100, 125);
             this.panel8.TabIndex = 3;
@@ -358,8 +358,8 @@ namespace ImageFilter
             // 
             this.panel9.Controls.Add(this.label9);
             this.panel9.Controls.Add(this.pictureBox9);
-            this.panel9.Location = new System.Drawing.Point(130, 300);
-            this.panel9.Margin = new System.Windows.Forms.Padding(10);
+            this.panel9.Location = new System.Drawing.Point(10, 1025);
+            this.panel9.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(100, 125);
             this.panel9.TabIndex = 3;
@@ -389,8 +389,8 @@ namespace ImageFilter
             // 
             this.panel10.Controls.Add(this.label10);
             this.panel10.Controls.Add(this.pictureBox10);
-            this.panel10.Location = new System.Drawing.Point(250, 300);
-            this.panel10.Margin = new System.Windows.Forms.Padding(10);
+            this.panel10.Location = new System.Drawing.Point(10, 1170);
+            this.panel10.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(100, 125);
             this.panel10.TabIndex = 4;
@@ -421,15 +421,15 @@ namespace ImageFilter
             this.progressBar1.Dock = System.Windows.Forms.DockStyle.Top;
             this.progressBar1.Location = new System.Drawing.Point(0, 0);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(366, 0);
+            this.progressBar1.Size = new System.Drawing.Size(260, 0);
             this.progressBar1.TabIndex = 1;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 28);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 36);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(760, 561);
+            this.pictureBox1.Size = new System.Drawing.Size(866, 553);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -440,6 +440,7 @@ namespace ImageFilter
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -447,7 +448,7 @@ namespace ImageFilter
             this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1126, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1126, 36);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -459,7 +460,7 @@ namespace ImageFilter
             this.saveAsToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(56, 32);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // chooseImageToolStripMenuItem
@@ -473,7 +474,7 @@ namespace ImageFilter
             // 
             this.saveToolStripMenuItem.Enabled = false;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(224, 32);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -535,7 +536,8 @@ namespace ImageFilter
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.ShowIcon = false;
+            this.Text = "Image Filters";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
